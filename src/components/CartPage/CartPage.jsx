@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function BinPage() {
+export function CartPage() {
 	return <div></div>;
 }

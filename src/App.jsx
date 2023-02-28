@@ -5,9 +5,9 @@ import { LoginPage } from './components/LoginPage';
 import { ProductListPage } from './components/ProductListPage';
 import { ProductPage } from './components/ProductPage';
 import { AccountPage } from './components/AccountPage';
-import { BinPage } from './components/BinPage';
 import { MainPage } from './components/MainPage';
 import { Header } from './components/Header';
+import { CartPage } from './components/CartPage';
 
 function App() {
 	return (
@@ -19,7 +19,7 @@ function App() {
 				<Route path='/productList' element={<ProductListPage />} />
 				<Route path='/productList/:productId' element={<ProductPage />} />
 				<Route path='/account' element={<AccountPage />} />
-				<Route path='/bin' element={<BinPage />} />
+				<Route path='/cart' element={<CartPage />} />
 				<Route path='/main' element={<MainPage />} />
 				<Route path='*' element={<ProductListPage />} />
 			</Routes>
