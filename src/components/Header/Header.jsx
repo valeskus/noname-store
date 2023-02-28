@@ -1,20 +1,26 @@
 import React from 'react';
 import './Header.style.css';
-
 import { Link } from 'react-router-dom';
-import { Button } from '../common/Button/Button';
+import { FaShoppingCart, FaUserCircle, FaStore } from 'react-icons/fa';
+import { Logo } from './components/Logo';
 
 export function Header() {
 	return (
 		<div className='header-container'>
+			<Link to='/main'>
+				<Logo />
+			</Link>
 			<div className='pages-container'>
-				<Link to='/productList'> Product List</Link>
-				<Link to='/account'>My Account</Link>
-				<Link to='/cart'> Cart</Link>
-				<Link to='/main'>Main</Link>
-			</div>
-			<div className='auth-button'>
-				<Button>Logout</Button>
+				<Link className='pages-name' to='/productList'>
+					<FaStore />
+				</Link>
+				<Link className='pages-name' to='/account'>
+					<FaUserCircle />
+				</Link>
+
+				<Link className='pages-name' to='/cart'>
+					<FaShoppingCart />
+				</Link>
 			</div>
 		</div>
 	);
