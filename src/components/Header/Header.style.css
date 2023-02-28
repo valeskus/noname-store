@@ -1,0 +1,13 @@
+.header-container{
+    display: flex;
+    border: 2px solid rgb(252, 3, 227);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.pages-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content:space-around
+}

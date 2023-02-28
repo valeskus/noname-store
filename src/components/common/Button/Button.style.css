@@ -1,0 +1,7 @@
+.button{
+    background-color: transparent;
+    border: 1px solid rgb(232, 199, 246);
+    padding: 6px ;
+    margin: 15px;
+    font-size: 1em;
+}
