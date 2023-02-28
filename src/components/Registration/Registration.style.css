@@ -4,15 +4,16 @@
 
 .container{
     display: flex;
-    padding: 50px;
+    margin: 120px auto;
+    height: 450px;
+    width:  450px;
+    border: 2px solid red;
 }
 
 .form-container{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    scroll-behavior: smooth;
 }
 
 .form-container > h2{

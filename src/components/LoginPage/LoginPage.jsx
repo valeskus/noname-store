@@ -5,7 +5,7 @@ import { Input } from '../common/Input';
 
 import { Link, useNavigate } from 'react-router-dom';
 
-export function LoginPage() {
+export function LoginPage(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -28,6 +28,7 @@ export function LoginPage() {
 	const handlePassword = useCallback((password) => {
 		setPassword(password);
 	}, []);
+
 	return (
 		<div className='container'>
 			<form className='form-container' onSubmit={handleSubmit}>
