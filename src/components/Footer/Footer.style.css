@@ -1,10 +1,6 @@
 .footer-container {
     width: 100%;
     display: flex;
-    padding: 20px;
-    background: linear-gradient(0deg, rgba(117, 131, 237, 0.81) 8%, rgba(249, 198, 227, 0.8) 53%, rgba(255, 255, 255, 0.828) 96%);
-    box-sizing: border-box;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    padding: 10px;
+    background: linear-gradient(0deg, rgba(117, 131, 237, 1) 14%, rgba(255, 255, 255, 1) 100%);    box-sizing: border-box;
 }
