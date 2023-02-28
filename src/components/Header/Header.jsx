@@ -21,7 +21,7 @@ const style = {
 	boxShadow: 24,
 	display: 'flex',
 	alignItems: 'center',
-	justifyContent: 'center', // p: 4,
+	justifyContent: 'center',
 };
 
 export function Header() {
