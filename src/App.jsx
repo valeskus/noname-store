@@ -8,6 +8,7 @@ import { AccountPage } from './components/AccountPage';
 import { MainPage } from './components/MainPage';
 import { Header } from './components/Header';
 import { CartPage } from './components/CartPage';
+import { Footer } from './components/Footer';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path='/main' element={<MainPage />} />
 				<Route path='*' element={<ProductListPage />} />
 			</Routes>
+			<Footer />
 		</BrowserRouter>
 	);
 }

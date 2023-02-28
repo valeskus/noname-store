@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.style.css';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaUserCircle, FaStore } from 'react-icons/fa';
-import { Logo } from './components/Logo';
+import { Logo } from '../common/Logo';
 
 export function Header() {
 	return (
