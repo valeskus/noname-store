@@ -7,7 +7,9 @@ export function Footer() {
 	return (
 		<div className='footer-container'>
 			<Link to='/main'>
-				<Logo />
+				<div className='logo-wraper'>
+					<Logo />
+				</div>
 			</Link>
 		</div>
 	);
