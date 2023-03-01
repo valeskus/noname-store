@@ -10,12 +10,8 @@ import { Header } from './components/Header';
 import { CartPage } from './pages/CartPage';
 import { Footer } from './components/Footer';
 import { PrivateRoute } from './components/PrivateRouter';
-import { useSelector } from 'react-redux';
-import { getUser } from './store/user/selectors';
 
 function App() {
-	const { isAuth } = useSelector(getUser);
-
 	return (
 		<BrowserRouter>
 			<Header />
@@ -27,7 +23,7 @@ function App() {
 				<Route
 					path='/account'
 					element={
-						<PrivateRoute redirectPath='/login' isAllowed={!!isAuth}>
+						<PrivateRoute redirectPath='/login'>
 							<AccountPage />
 						</PrivateRoute>
 					}
@@ -35,7 +31,7 @@ function App() {
 				<Route
 					path='/cart'
 					element={
-						<PrivateRoute redirectPath='/login' isAllowed={!!isAuth}>
+						<PrivateRoute redirectPath='/login'>
 							<CartPage />
 						</PrivateRoute>
 					}

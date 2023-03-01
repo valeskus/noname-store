@@ -3,9 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 export const mockedUsers = [
 	{
 		id: uuidv4(),
+		name: 'UserOne',
 		email: 'UserOne@gmail.com',
 		password: 'UserOne',
-		isAuth: true,
 	},
 ];
 

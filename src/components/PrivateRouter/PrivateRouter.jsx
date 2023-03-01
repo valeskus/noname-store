@@ -2,8 +2,12 @@ import React from 'react';
 
 import { Navigate } from 'react-router-dom';
 
-export const PrivateRoute = ({ isAllowed, redirectPath, children }) => {
-	if (!isAllowed) {
+import { Client } from '../../api/client/Client';
+
+export const PrivateRoute = ({ redirectPath, children }) => {
+	const token = Client.getToken();
+
+	if (!token) {
 		return <Navigate to={redirectPath} replace />;
 	}
 
