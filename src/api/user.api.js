@@ -28,13 +28,11 @@ export const register = (data) => {
 	});
 };
 
-export const getData = () => {
+export const getUserData = () => {
 	return new Promise((resolve, reject) => {
 		return resolve({
 			name: 'UserOne',
 			email: 'UserOne@gmail.com',
 		});
-
-		// return reject('error: something went wrong');
 	});
 };

@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { UserService } from '../../services';
-import { getUser } from '../../store/user/selectors';
+import React from 'react';
 
 export function AccountPage() {
 	return (

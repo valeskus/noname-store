@@ -1,5 +1,6 @@
 import { Client } from './api/client/Client';
-import { getData, login, register } from './api/user.api';
+import { login, register } from './api/user.api';
+import { getData } from './api/products.api';
 
 export const UserService = {
 	async registerUser(data) {
@@ -14,10 +15,11 @@ export const UserService = {
 		Client.setToken(res.result);
 		return res.result;
 	},
-	async getUserData() {
-		const res = await getData();
+};
 
-		Client.setToken(res.result);
+export const ProductService = {
+	async getProductData() {
+		const res = await getData();
 		return res.result;
 	},
 };
