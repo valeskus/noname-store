@@ -18,16 +18,6 @@ export function Input(props) {
 				className='input'
 				placeholder={props.placeholder}
 			/>
-			{/* <input
-				onChange={(e) => {
-					props.onChange(e.target.value);
-				}}
-				value={props.value}
-				type={props.type}
-				id={props.id}
-				className='input'
-				placeholder={props.placeholder}
-			/> */}
 		</div>
 	);
 }
