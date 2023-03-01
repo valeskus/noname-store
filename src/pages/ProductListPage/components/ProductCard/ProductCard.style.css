@@ -1,6 +1,25 @@
 .productCard-container {
     font-size: 0.7em;
-    border: 1px solid red;
+    border: 1px solid rgb(69, 69, 73);;
+    
     width: 300px;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.productCard-button{
+    font-size: 1.5em;
+}
+
+.productCard-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-image{
+    width: 250px;
 }
