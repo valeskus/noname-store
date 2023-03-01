@@ -1,7 +1,11 @@
 import React from 'react';
 import './Header.style.css';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaUserCircle, FaStore } from 'react-icons/fa';
+import StyledBadge from '@mui/material/Badge';
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonIcon from '@mui/icons-material/Person';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 import { Logo } from '../common/Logo';
 
 import Modal from '@mui/material/Modal';
@@ -35,14 +39,16 @@ export function Header() {
 			</Link>
 			<div className='pages-container'>
 				<Link className='pages-name' to='/productList'>
-					<FaStore />
+					<StorefrontIcon fontSize='large' />
 				</Link>
 				<Link className='pages-name' to='/account'>
-					<FaUserCircle />
+					<PersonIcon fontSize='large' />
 				</Link>
 
 				<Link className='pages-name' to='/cart'>
-					<FaShoppingCart />
+					<StyledBadge badgeContent={0} color='secondary'>
+						<ShoppingCartIcon fontSize='large' />
+					</StyledBadge>
 				</Link>
 			</div>
 			<Button className='pages-name' onClick={handleOpen}>
