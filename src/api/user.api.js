@@ -1,14 +1,12 @@
-export const login = (username, password) => {
+export const login = (data) => {
 	return new Promise((resolve, reject) => {
-		if (username === '' && password === '') {
+		if (data.email === 'UserOne@gmail.com' && data.password === 'UserOne') {
 			return resolve({
-				token: '',
+				result: 'token1',
 			});
 		}
 
-		return reject({
-			error: 'no authorised',
-		});
+		return reject('error: no authorised');
 	});
 };
 

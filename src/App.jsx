@@ -10,9 +10,11 @@ import { Header } from './components/Header';
 import { CartPage } from './pages/CartPage';
 import { Footer } from './components/Footer';
 import { PrivateRoute } from './components/PrivateRouter';
+import { useSelector } from 'react-redux';
+import { getUser } from './store/user/selectors';
 
 function App() {
-	const { isAuth, setisAuth } = useState(false);
+	const { isAuth } = useSelector(getUser);
 
 	return (
 		<BrowserRouter>

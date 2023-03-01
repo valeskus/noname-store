@@ -2,19 +2,25 @@ import React, { useCallback, useState } from 'react';
 import './LoginPage.style.css';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
+import { useDispatch } from 'react-redux';
+import { putToken } from '../../store/user/actionCreators';
 
 import { Link, useNavigate } from 'react-router-dom';
+import { UserService } from '../../services';
 
 export function LoginPage(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const dispatch = useDispatch();
 	let navigate = useNavigate();
 
-	function handleSubmit(event) {
+	async function handleSubmit(event) {
 		event.preventDefault();
 
 		try {
+			const result = await UserService.loginUser({ email, password });
+			dispatch(putToken(result));
 			// navigate('/');
 		} catch (error) {
 			alert(error);
