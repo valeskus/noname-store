@@ -16,6 +16,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category One',
+		price: 150,
 	},
 	{
 		id: uuidv4(),
@@ -23,6 +24,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category One',
+		price: 140,
 	},
 	{
 		id: uuidv4(),
@@ -30,6 +32,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category One',
+		price: 170,
 	},
 	{
 		id: uuidv4(),
@@ -37,6 +40,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category One',
+		price: 10,
 	},
 	{
 		id: uuidv4(),
@@ -44,6 +48,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category One',
+		price: 250,
 	},
 	{
 		id: uuidv4(),
@@ -51,6 +56,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category One',
+		price: 300,
 	},
 	{
 		id: uuidv4(),
@@ -58,6 +64,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Two',
+		price: 100,
 	},
 	{
 		id: uuidv4(),
@@ -65,6 +72,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Books',
+		price: 90,
 	},
 	{
 		id: uuidv4(),
@@ -72,6 +80,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Two',
+		price: 80,
 	},
 	{
 		id: uuidv4(),
@@ -79,6 +88,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Two',
+		price: 25,
 	},
 	{
 		id: uuidv4(),
@@ -86,6 +96,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Three',
+		price: 500,
 	},
 	{
 		id: uuidv4(),
@@ -93,6 +104,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Three',
+		price: 5,
 	},
 	{
 		id: uuidv4(),
@@ -100,6 +112,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Three',
+		price: 124,
 	},
 	{
 		id: uuidv4(),
@@ -107,6 +120,7 @@ export const mockedProducts = [
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
 		category: 'Category Three',
+		price: 167,
 	},
 ];
 

@@ -12,6 +12,13 @@
 
 .searchInput-container{
     flex: 3;
+    padding-left: 50px;
+}
 
+.sort-container{
+    display: flex;
+    padding: 10px;
+    flex: 1;
+    justify-content: center;
 }
 

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import './ProductListPage.style.css';
 import { ProductService } from '../../services';
 import { setProducts } from '../../store/products/actionCreators';
@@ -9,11 +9,13 @@ import { SearchBar } from './components/SearchBar/SearchBar';
 
 export function ProductListPage() {
 	const [filter, setFilter] = useState();
+	const [sorted, setSorted] = useState();
+
 	const products = useSelector(getProducts);
 
 	const dispatch = useDispatch();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		ProductService.getProductData().then((data) => {
 			if (!data) {
 				return;
@@ -24,15 +26,18 @@ export function ProductListPage() {
 		// eslint-disable-next-line
 	}, []);
 
-	const handleSearch = useCallback(
-		(value) => {
-			if (!value) {
-				setFilter();
-			}
-			setFilter(value);
-		},
-		[setFilter]
-	);
+	const handleSearch = useCallback((value) => {
+		if (!value) {
+			setFilter();
+		}
+		setFilter(value);
+	}, []);
+	const handleSort = useCallback((value) => {
+		if (!value) {
+			setSorted();
+		}
+		setSorted(value);
+	}, []);
 
 	const productsList = useMemo(() => {
 		if (!filter) {
@@ -42,9 +47,10 @@ export function ProductListPage() {
 			product.title.toLowerCase().includes(filter.toLowerCase())
 		);
 	}, [filter, products]);
+
 	return (
 		<div className='productListPage-container'>
-			<SearchBar onSearch={handleSearch} />
+			<SearchBar onSearch={handleSearch} onSort={handleSort} />
 
 			{productsList.length > 0 ? (
 				<div className='productList-container'>
