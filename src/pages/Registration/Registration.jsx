@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import './Registration.style.css';
-import { Button } from '../common/Button';
-import { Input } from '../common/Input';
+import { Button } from '../../components/common/Button';
+import { Input } from '../../components/common/Input';
 
 import { Link, useNavigate } from 'react-router-dom';
 

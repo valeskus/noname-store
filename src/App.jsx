@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { Registration } from './components/Registration';
-import { LoginPage } from './components/LoginPage';
-import { ProductListPage } from './components/ProductListPage';
-import { ProductPage } from './components/ProductPage';
-import { AccountPage } from './components/AccountPage';
-import { MainPage } from './components/MainPage';
+import { Registration } from './pages/Registration';
+import { LoginPage } from './pages/LoginPage';
+import { ProductListPage } from './pages/ProductListPage';
+import { ProductPage } from './pages/ProductPage';
+import { AccountPage } from './pages/AccountPage';
+import { MainPage } from './pages/MainPage';
 import { Header } from './components/Header';
-import { CartPage } from './components/CartPage';
+import { CartPage } from './pages/CartPage';
 import { Footer } from './components/Footer';
 import { PrivateRoute } from './components/PrivateRouter';
 

@@ -7,7 +7,7 @@ import { Logo } from '../common/Logo';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import { Button } from '../common/Button';
-import { LoginPage } from '../LoginPage';
+import { LoginPage } from '../../pages/LoginPage';
 
 const style = {
 	position: 'absolute',
