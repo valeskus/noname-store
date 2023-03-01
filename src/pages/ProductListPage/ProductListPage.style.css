@@ -1,0 +1,15 @@
+.productListPage-container {
+    display: flex;
+    margin: 120px auto;
+    width: 70vw;
+    flex-direction: column;
+   
+}
+
+.productList-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}

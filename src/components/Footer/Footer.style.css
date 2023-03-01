@@ -3,4 +3,6 @@
     display: flex;
     padding: 10px;
     background: linear-gradient(0deg, rgba(117, 131, 237, 1) 14%, rgba(255, 255, 255, 1) 100%);    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
 }
