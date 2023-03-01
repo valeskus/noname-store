@@ -21,7 +21,8 @@ export function LoginPage(props) {
 		try {
 			const result = await UserService.loginUser({ email, password });
 			dispatch(putToken(result));
-			// navigate('/');
+
+			navigate('/main');
 		} catch (error) {
 			alert(error);
 		}

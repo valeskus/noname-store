@@ -1,13 +1,21 @@
 import { Client } from './api/client/Client';
-import { login } from './api/user.api';
+import { getData, login, register } from './api/user.api';
 
 export const UserService = {
-	// async registerUser(user) {
-	// 	await ClientInstance.post('/register', user);
-	// },
+	async registerUser(data) {
+		const res = await register(data);
+		console.log(res);
+		return res.result;
+	},
 
 	async loginUser(data) {
 		const res = await login(data);
+
+		Client.setToken(res.result);
+		return res.result;
+	},
+	async getUserData() {
+		const res = await getData();
 
 		Client.setToken(res.result);
 		return res.result;

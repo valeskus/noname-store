@@ -7,12 +7,6 @@ export const mockedUsers = [
 		password: 'UserOne',
 		isAuth: true,
 	},
-	{
-		id: uuidv4(),
-		email: 'UserTwo@gmail.com',
-		password: 'UserTwo',
-		isAuth: true,
-	},
 ];
 
 export const mockedProducts = [
