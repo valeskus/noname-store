@@ -46,7 +46,7 @@ export function Header() {
 				</Link>
 
 				<Link className='pages-name' to='/cart'>
-					<StyledBadge badgeContent={0} color='secondary'>
+					<StyledBadge badgeContent={1} color='secondary'>
 						<ShoppingCartIcon fontSize='large' />
 					</StyledBadge>
 				</Link>
