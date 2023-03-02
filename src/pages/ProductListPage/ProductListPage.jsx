@@ -9,7 +9,7 @@ import { SearchBar } from './components/SearchBar/SearchBar';
 
 export function ProductListPage() {
 	const [filter, setFilter] = useState();
-	const [sorted, setSorted] = useState();
+	const [sortedBy, setSortedBy] = useState('');
 
 	const products = useSelector(getProducts);
 
@@ -34,23 +34,53 @@ export function ProductListPage() {
 	}, []);
 	const handleSort = useCallback((value) => {
 		if (!value) {
-			setSorted();
+			setSortedBy();
 		}
-		setSorted(value);
+		setSortedBy(value);
 	}, []);
 
-	const productsList = useMemo(() => {
-		if (!filter) {
-			return products;
+	const sortedList = (list, sortedBy) => {
+		let sortedList = [];
+		switch (sortedBy) {
+			case 'PHL':
+				sortedList = list.sort(function (a, b) {
+					return b.price - a.price;
+				});
+				break;
+			case 'PLH':
+				sortedList = list.sort(function (a, b) {
+					return a.price - b.price;
+				});
+				break;
+			case 'PP':
+				sortedList = list.sort(function (a, b) {
+					return b.popularity - a.popularity;
+				});
+				break;
+			default:
+				sortedList = list;
 		}
-		return products.filter((product) =>
-			product.title.toLowerCase().includes(filter.toLowerCase())
-		);
-	}, [filter, products]);
+		return sortedList;
+	};
+
+	const productsList = useMemo(() => {
+		const list = !filter
+			? products
+			: products.filter((product) =>
+					product.title.toLowerCase().includes(filter.toLowerCase())
+			  );
+
+		sortedList(list, sortedBy);
+		return list;
+	}, [filter, products, sortedBy]);
 
 	return (
 		<div className='productListPage-container'>
-			<SearchBar onSearch={handleSearch} onSort={handleSort} />
+			<SearchBar
+				onSearch={handleSearch}
+				onSort={handleSort}
+				sortedBy={sortedBy}
+			/>
 
 			{productsList.length > 0 ? (
 				<div className='productList-container'>

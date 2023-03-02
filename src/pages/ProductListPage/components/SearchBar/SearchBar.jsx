@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import './SearchBar.style.css';
-import { Button } from '../../../../components/common/Button';
 import { Input } from '../../../../components/common/Input';
 
 import IconButton from '@mui/material/IconButton';
@@ -12,7 +11,6 @@ import FormControl from '@mui/material/FormControl';
 
 export function SearchBar(props) {
 	const [searchValue, setSearchValue] = useState('');
-	const [sortBy, setSortBy] = React.useState('');
 
 	const handleClick = useCallback(() => {
 		props.onSearch(searchValue);
@@ -31,7 +29,7 @@ export function SearchBar(props) {
 		[props.onSearch]
 	);
 	const handleSortBy = (event) => {
-		setSortBy(event.target.value);
+		props.onSort(event.target.value);
 	};
 
 	return (
@@ -60,13 +58,13 @@ export function SearchBar(props) {
 					<Select
 						labelId='demo-simple-select-filled-label'
 						id='demo-simple-select-filled'
-						value={sortBy}
+						value={props.sortedBy}
 						onChange={handleSortBy}
 					>
 						<MenuItem value=''>-</MenuItem>
 						<MenuItem value={'PLH'}>Price: Low to High</MenuItem>
 						<MenuItem value={'PHL'}>Price: High to Low</MenuItem>
-						<MenuItem value={'CR'}>Avg. Customer Review</MenuItem>
+						<MenuItem value={'PP'}>Popularity</MenuItem>
 					</Select>
 				</FormControl>
 			</div>
