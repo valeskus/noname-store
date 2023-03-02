@@ -1,0 +1,27 @@
+.orderHistory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orderHistory-container>#orderHistoryContainerTitle {
+    background-color: rgb(247, 205, 219);
+    color: rgb(85 26 139 / 70%);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    border-radius:  10px 10px 0 0 ;
+
+}
+
+.orderHistoryCard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    width: 100%;
+    padding: 30px;
+    border: 1px solid rgb(247, 205, 219);
+    border-radius: 0 0 10px 10px  ;
+
+}

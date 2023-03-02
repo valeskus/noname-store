@@ -1,0 +1,23 @@
+.userInfo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userData-info{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    
+}
+
+.userData-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#accountPageUserName{
+    margin-bottom: 0;
+}

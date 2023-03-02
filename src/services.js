@@ -1,5 +1,5 @@
 import { Client } from './api/client/Client';
-import { login, register } from './api/user.api';
+import { getUserData, login, register } from './api/user.api';
 import { getData } from './api/products.api';
 import { getCategoryData } from './api/categories.api';
 
@@ -14,6 +14,10 @@ export const UserService = {
 		const res = await login(data);
 
 		Client.setToken(res.result);
+		return res.result;
+	},
+	async getUserData() {
+		const res = await getUserData();
 		return res.result;
 	},
 };

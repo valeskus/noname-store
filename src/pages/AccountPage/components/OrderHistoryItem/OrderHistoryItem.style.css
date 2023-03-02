@@ -1,0 +1,13 @@
+.orderHistoryItem-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid  #eeabdf;
+    border-bottom: 1px solid  #cfb2ea;
+    margin-bottom: 10px;
+}
+
+.orderItemStatus{
+    color: rgb(12, 140, 69);
+}

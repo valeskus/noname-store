@@ -48,6 +48,7 @@ export function ProductListPage() {
 		setCategory(value);
 	}, []);
 
+	//rename function, rebase function
 	const sortedList = (list, sortedBy) => {
 		let sortedList = [];
 		switch (sortedBy) {

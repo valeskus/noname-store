@@ -31,8 +31,11 @@ export const register = (data) => {
 export const getUserData = () => {
 	return new Promise((resolve, reject) => {
 		return resolve({
-			name: 'UserOne',
-			email: 'UserOne@gmail.com',
+			result: {
+				name: 'UserOne',
+				email: 'UserOne@gmail.com',
+				token: 'token1',
+			},
 		});
 	});
 };
