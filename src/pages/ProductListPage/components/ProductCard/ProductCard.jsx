@@ -9,7 +9,7 @@ export function ProductCard({ product }) {
 			<img
 				className='card-image'
 				src={`https://picsum.photos/id/${randomImageId}/200`}
-				alt='logo'
+				alt='productImage'
 			/>
 			<div className='productCard-content'>
 				<h3>{product.title}</h3>
