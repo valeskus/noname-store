@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import './MainPage.style.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ export function MainPage() {
 	);
 	const handleClick = useCallback(() => {
 		navigate('/productList');
-	}, []);
+	}, [navigate]);
 	return (
 		<div className='mainPage-container'>
 			<div className='mainBanner-container'>

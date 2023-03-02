@@ -1,6 +1,6 @@
 import { Client } from './api/client/Client';
 import { getUserData, login, register } from './api/user.api';
-import { getData } from './api/products.api';
+import { getById, getData } from './api/products.api';
 import { getCategoryData } from './api/categories.api';
 
 export const UserService = {
@@ -28,6 +28,7 @@ export const ProductService = {
 		return res.result;
 	},
 };
+
 export const CategoryService = {
 	async getCategoryData() {
 		const res = await getCategoryData();
