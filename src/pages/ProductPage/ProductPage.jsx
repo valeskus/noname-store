@@ -1,12 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import './ProductPage.style.css';
 
 import { getProducts } from '../../store/products/selectors';
 import { Button } from '../../components/common/Button';
+import { CartProductsService } from '../../services';
+import { setCartProduct } from '../../store/cart/actionCreators';
 
 export function ProductPage(props) {
+	const dispatch = useDispatch();
+
 	const randomImageId = Math.floor(Math.random() * 29);
 
 	const { productId } = useParams();
@@ -37,7 +41,16 @@ export function ProductPage(props) {
 		setProduct(currentProduct);
 	}, [products, productId]);
 
-	const handleBuy = useCallback(() => {}, []);
+	const handleBuy = useCallback(() => {
+		CartProductsService.setCartProduct(product).then((data) => {
+			if (!data) {
+				return;
+			}
+			dispatch(setCartProduct(data));
+		}, []);
+
+		// eslint-disable-next-line
+	}, []);
 
 	return (
 		<div className='productPage-container'>

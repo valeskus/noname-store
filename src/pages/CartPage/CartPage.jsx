@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '../../components/common/Button';
+import { CartProductsService } from '../../services';
 import './CartPage.style.css';
 
 export function CartPage() {
 	const randomImageId = Math.floor(Math.random() * 29);
+
+	useEffect(() => {
+		CartProductsService.getCartProducts().then((data) => {
+			if (!data) {
+				return;
+			}
+			// dispatch(setCartProducts(data));
+		}, []);
+
+		// eslint-disable-next-line
+	}, []);
 
 	return (
 		<div className='cartPage-container'>

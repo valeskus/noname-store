@@ -3,13 +3,28 @@ import { Button } from '../../../../components/common/Button';
 import { useNavigate } from 'react-router-dom';
 
 import './ProductCard.style.css';
+import { CartProductsService } from '../../../../services';
+import { useDispatch } from 'react-redux';
+import { setCartProduct } from '../../../../store/cart/actionCreators';
 
 export function ProductCard({ product }) {
 	let navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const randomImageId = Math.floor(Math.random() * 29);
 	const handleClick = useCallback(() => {
 		navigate(`/productList/${product.id}`);
+	}, [navigate, product.id]);
+	//fix cursor!
+	const handleBuy = useCallback(() => {
+		CartProductsService.setCartProduct(product).then((data) => {
+			if (!data) {
+				return;
+			}
+			dispatch(setCartProduct(data));
+		}, []);
+
+		// eslint-disable-next-line
 	}, []);
 	return (
 		<div className='productCard-container' onClick={handleClick}>
@@ -23,7 +38,7 @@ export function ProductCard({ product }) {
 				<h2>{product.price}$</h2>
 			</div>
 			<div className='productCard-button'>
-				<Button> BUY</Button>
+				<Button onClick={handleBuy}> BUY</Button>
 			</div>
 		</div>
 	);
