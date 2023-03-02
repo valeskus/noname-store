@@ -55,15 +55,7 @@ export const mockedProducts = [
 		price: 250,
 		popularity: 5,
 	},
-	{
-		id: uuidv4(),
-		title: 'Product 5',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
-		category: 'Category One',
-		price: 300,
-		popularity: 232,
-	},
+
 	{
 		id: uuidv4(),
 		title: 'Product 6',

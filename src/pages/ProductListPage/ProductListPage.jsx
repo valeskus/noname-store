@@ -5,11 +5,13 @@ import { setProducts } from '../../store/products/actionCreators';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/products/selectors';
 import { ProductCard } from './components/ProductCard';
-import { SearchBar } from './components/SearchBar/SearchBar';
+import { SearchBar } from './components/SearchBar';
+import { CategoryList } from './components/CategoryList';
 
 export function ProductListPage() {
 	const [filter, setFilter] = useState();
 	const [sortedBy, setSortedBy] = useState('');
+	const [category, setCategory] = useState('');
 
 	const products = useSelector(getProducts);
 
@@ -39,6 +41,13 @@ export function ProductListPage() {
 		setSortedBy(value);
 	}, []);
 
+	const handleCategory = useCallback((value) => {
+		if (!value) {
+			setCategory();
+		}
+		setCategory(value);
+	}, []);
+
 	const sortedList = (list, sortedBy) => {
 		let sortedList = [];
 		switch (sortedBy) {
@@ -63,16 +72,25 @@ export function ProductListPage() {
 		return sortedList;
 	};
 
+	const filteredList = (products, category) => {
+		if (!category) {
+			return products;
+		}
+		return products.filter((product) => product.category === category);
+	};
+
 	const productsList = useMemo(() => {
+		const filterByCategory = filteredList(products, category);
+
 		const list = !filter
-			? products
-			: products.filter((product) =>
+			? filterByCategory
+			: filterByCategory.filter((product) =>
 					product.title.toLowerCase().includes(filter.toLowerCase())
 			  );
 
 		sortedList(list, sortedBy);
 		return list;
-	}, [filter, products, sortedBy]);
+	}, [filter, products, sortedBy, category]);
 
 	return (
 		<div className='productListPage-container'>
@@ -82,15 +100,18 @@ export function ProductListPage() {
 				sortedBy={sortedBy}
 			/>
 
-			{productsList.length > 0 ? (
-				<div className='productList-container'>
-					{productsList.map((product) => (
-						<ProductCard product={product} key={product.id} />
-					))}
-				</div>
-			) : (
-				<h2>Ooops...Products List Is Empty</h2>
-			)}
+			<div className='product-menu'>
+				<CategoryList onClick={handleCategory} />
+				{productsList.length > 0 ? (
+					<div className='productList-container'>
+						{productsList.map((product) => (
+							<ProductCard product={product} key={product.id} />
+						))}
+					</div>
+				) : (
+					<h2>Ooops...Products List Is Empty</h2>
+				)}
+			</div>
 		</div>
 	);
 }

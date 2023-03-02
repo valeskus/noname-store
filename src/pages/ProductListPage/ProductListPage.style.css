@@ -1,7 +1,6 @@
 .productListPage-container {
     display: flex;
-    margin: 120px auto;
-    width: 75vw;
+    margin: 120px 50px;
     flex-direction: column;
 }
 
@@ -12,4 +11,8 @@
     justify-content: flex-start;
     padding: 0 50px;
 
+}
+
+.product-menu{
+    display: flex;
 }
