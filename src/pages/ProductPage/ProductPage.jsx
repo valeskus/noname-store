@@ -50,7 +50,7 @@ export function ProductPage(props) {
 		}, []);
 
 		// eslint-disable-next-line
-	}, []);
+	}, [product]);
 
 	return (
 		<div className='productPage-container'>
@@ -63,7 +63,7 @@ export function ProductPage(props) {
 				<div className='productPage-details'>
 					<h3>{product.title}</h3>
 					<p>{product.price}$</p>
-					<Button onClick={handleBuy}>BUY</Button>
+					<Button onClick={handleBuy}>ADD TO BASKET</Button>
 				</div>
 			</div>
 			<div className='product-description'>

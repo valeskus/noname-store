@@ -41,9 +41,10 @@ export const CategoryService = {
 export const CartProductsService = {
 	async getCartProducts() {
 		const res = await getCartProducts();
+		console.log(res.result);
 		return res.result;
 	},
-	async setCartProducts(product) {
+	async setCartProduct(product) {
 		const res = await setCartProduct(product);
 		return res.result;
 	},

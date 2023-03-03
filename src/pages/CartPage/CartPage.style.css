@@ -5,26 +5,10 @@
     align-items: center;
 }
 
-.cartPage-productItem {
-    display: flex;
-    width: 100%;
-    border-top: 1px solid #eeabdf;
-    border-bottom: 1px solid #cfb2ea;
-    margin-bottom: 10px;
-}
-
 .cartPage-card-image {
     height: 100px;
     margin: 10px;
     border-radius: 20px;
-}
-
-.cartPage-product-details {
-    display: flex;
-    flex: 1;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-around;
 }
 
 .cart-container{

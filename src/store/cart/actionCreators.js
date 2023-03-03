@@ -7,6 +7,13 @@ export function setCartProduct(data) {
 	};
 }
 
+export function setCartProducts(data) {
+	return {
+		type: Types.SET_CARTPRODUCTS,
+		payload: data,
+	};
+}
+
 export function delCartProduct(id) {
 	return {
 		type: Types.DEL_CARTPRODUCT,

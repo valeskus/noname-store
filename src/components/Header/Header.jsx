@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Header.style.css';
 import { Link } from 'react-router-dom';
 import StyledBadge from '@mui/material/Badge';
@@ -12,6 +12,10 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import { Button } from '../common/Button';
 import { LoginPage } from '../../pages/LoginPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartProducts } from '../../store/cart/selectors';
+import { CartProductsService } from '../../services';
+import { setCartProducts } from '../../store/cart/actionCreators';
 
 const style = {
 	position: 'absolute',
@@ -29,9 +33,21 @@ const style = {
 };
 
 export function Header() {
+	const products = useSelector(getCartProducts);
+	const dispatch = useDispatch();
+
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
+	useEffect(() => {
+		CartProductsService.getCartProducts().then((data) => {
+			if (!data) {
+				return;
+			}
+			dispatch(setCartProducts(data));
+		}, []);
+		//eslint-disable-next-line
+	}, []);
 	return (
 		<div className='header-container'>
 			<Link to='/main'>
@@ -46,7 +62,7 @@ export function Header() {
 				</Link>
 
 				<Link className='pages-name' to='/cart'>
-					<StyledBadge badgeContent={1} color='secondary'>
+					<StyledBadge badgeContent={products?.length} color='secondary'>
 						<ShoppingCartIcon fontSize='large' />
 					</StyledBadge>
 				</Link>

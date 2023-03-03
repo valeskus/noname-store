@@ -1,13 +1,22 @@
+const cartUpdate = (product) => {
+	const productList = localStorage.getItem('product')
+		? JSON.parse(localStorage.getItem('product'))
+		: [];
+	productList.push(product);
+	return JSON.stringify(productList);
+};
+
 export const getCartProducts = () => {
-	const product = JSON.parse(localStorage.getItem('product'));
-	console.log(product);
+	const products = JSON.parse(localStorage.getItem('product'));
 	return new Promise((resolve, reject) => {
-		return resolve({ result: product });
+		return resolve({ result: products });
 	});
 };
 
 export const setCartProduct = (product) => {
-	localStorage.setItem('product', JSON.stringify(product));
+	const productJSON = cartUpdate(product);
+
+	localStorage.setItem('product', productJSON);
 	return new Promise((resolve, reject) => {
 		return resolve({ result: product });
 	});
