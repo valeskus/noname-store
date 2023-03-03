@@ -18,7 +18,7 @@ export function ProductListPage() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		ProductService.getProductData().then((data) => {
+		ProductService.getProductsData().then((data) => {
 			if (!data) {
 				return;
 			}

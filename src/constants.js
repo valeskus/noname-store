@@ -11,7 +11,7 @@ export const mockedUsers = [
 
 export const mockedProducts = [
 	{
-		id: uuidv4(),
+		id: '1p',
 		title: 'Product 1',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -20,7 +20,7 @@ export const mockedProducts = [
 		popularity: 0,
 	},
 	{
-		id: uuidv4(),
+		id: '2p',
 		title: 'Product 2',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -29,7 +29,7 @@ export const mockedProducts = [
 		popularity: 2,
 	},
 	{
-		id: uuidv4(),
+		id: '3p',
 		title: 'Product 3',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -38,7 +38,7 @@ export const mockedProducts = [
 		popularity: 294,
 	},
 	{
-		id: uuidv4(),
+		id: '4p',
 		title: 'Product 4',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -47,7 +47,7 @@ export const mockedProducts = [
 		popularity: 34,
 	},
 	{
-		id: uuidv4(),
+		id: '5p',
 		title: 'Product 5',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -57,7 +57,7 @@ export const mockedProducts = [
 	},
 
 	{
-		id: uuidv4(),
+		id: '6p',
 		title: 'Product 6',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -66,7 +66,7 @@ export const mockedProducts = [
 		popularity: 0,
 	},
 	{
-		id: uuidv4(),
+		id: '7p',
 		title: ' Product 7',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -75,7 +75,7 @@ export const mockedProducts = [
 		popularity: 1,
 	},
 	{
-		id: uuidv4(),
+		id: '8p',
 		title: 'Product 8',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -84,7 +84,7 @@ export const mockedProducts = [
 		popularity: 10,
 	},
 	{
-		id: uuidv4(),
+		id: '9p',
 		title: 'Product 9',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -93,7 +93,7 @@ export const mockedProducts = [
 		popularity: 22,
 	},
 	{
-		id: uuidv4(),
+		id: '10p',
 		title: 'Product 10',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -102,7 +102,7 @@ export const mockedProducts = [
 		popularity: 23,
 	},
 	{
-		id: uuidv4(),
+		id: '11p',
 		title: 'Product 11',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -111,7 +111,7 @@ export const mockedProducts = [
 		popularity: 45,
 	},
 	{
-		id: uuidv4(),
+		id: '12p',
 		title: 'Product 12',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
@@ -120,7 +120,7 @@ export const mockedProducts = [
 		popularity: 3,
 	},
 	{
-		id: uuidv4(),
+		id: '13p',
 		title: 'Product 13',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna nunc id. Cras fermentum odio eu feugiat pretium nibh ipsum.',
