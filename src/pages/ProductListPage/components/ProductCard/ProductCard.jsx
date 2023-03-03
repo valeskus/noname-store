@@ -15,7 +15,7 @@ export function ProductCard({ product }) {
 	const handleClick = useCallback(() => {
 		navigate(`/productList/${product.id}`);
 	}, [navigate, product.id]);
-	//fix cursor!
+
 	const handleBuy = useCallback(() => {
 		CartProductsService.setCartProduct(product).then((data) => {
 			if (!data) {
@@ -27,15 +27,17 @@ export function ProductCard({ product }) {
 		// eslint-disable-next-line
 	}, []);
 	return (
-		<div className='productCard-container' onClick={handleClick}>
-			<img
-				className='card-image'
-				src={`https://picsum.photos/id/${randomImageId}/200`}
-				alt='productImage'
-			/>
-			<div className='productCard-content'>
-				<h3>{product.title}</h3>
-				<h2>{product.price}$</h2>
+		<div className='productCard-container'>
+			<div onClick={handleClick}>
+				<img
+					className='card-image'
+					src={`https://picsum.photos/id/${randomImageId}/200`}
+					alt='productImage'
+				/>
+				<div className='productCard-content'>
+					<h3>{product.title}</h3>
+					<h2>{product.price}$</h2>
+				</div>
 			</div>
 			<div className='productCard-button'>
 				<Button onClick={handleBuy}> BUY</Button>
