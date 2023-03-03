@@ -20,3 +20,10 @@ export function delCartProduct(id) {
 		payload: id,
 	};
 }
+
+export function delCartProducts(id) {
+	return {
+		type: Types.RESET_CART,
+		payload: id,
+	};
+}

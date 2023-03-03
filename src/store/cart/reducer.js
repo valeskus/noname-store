@@ -17,6 +17,9 @@ export function cartProductsReducer(state = initialState, action) {
 
 			return filteredCartProducts;
 		}
+		case Types.RESET_CART: {
+			return initialState;
+		}
 
 		default: {
 			return state;

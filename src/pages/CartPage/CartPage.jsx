@@ -1,40 +1,39 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../components/common/Button';
 import { CartProductsService } from '../../services';
-import { setCartProducts } from '../../store/cart/actionCreators';
+import { delCartProducts } from '../../store/cart/actionCreators';
 import { getCartProducts } from '../../store/cart/selectors';
 import './CartPage.style.css';
 import { CartItem } from './components/CartItem/CartItem';
 
 export function CartPage() {
-	const dispatch = useDispatch();
 	const [subtotalPrice, setSubtotalPrice] = useState(0);
-
+	const dispatch = useDispatch();
 	const products = useSelector(getCartProducts);
 
-	useEffect(() => {
-		// CartProductsService.getCartProducts().then((data) => {
-		// 	if (!data) {
-		// 		return;
-		// 	}
-		// 	dispatch(setCartProducts(data));
-		// }, []);
-		// eslint-disable-next-line
+	useMemo(() => {
+		const price =
+			products.length > 0
+				? products.reduce(
+						(accumulator, currentValue) => accumulator + currentValue.price,
+						0
+				  )
+				: 0;
+		setSubtotalPrice(price);
+	}, [products]);
+
+	const deleteCartList = useCallback(() => {
+		CartProductsService.delCartProducts().then(
+			(data) => {
+				if (!data) {
+					return;
+				}
+				dispatch(delCartProducts());
+			},
+			[dispatch]
+		);
 	}, []);
-	useMemo(
-		(value) => {
-			const price =
-				products.length > 0
-					? products.reduce(
-							(accumulator, currentValue) => accumulator + currentValue.price,
-							0
-					  )
-					: 0;
-			setSubtotalPrice(price);
-		},
-		[products]
-	);
 
 	return (
 		<div className='cartPage-container'>
@@ -46,7 +45,7 @@ export function CartPage() {
 				<h3>
 					Subtotal ({products ? products.length : 0} item): {subtotalPrice}$
 				</h3>
-				<Button>Buy</Button>
+				<Button onClick={deleteCartList}>Buy</Button>
 			</div>
 		</div>
 	);

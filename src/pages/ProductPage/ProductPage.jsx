@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import './ProductPage.style.css';
@@ -21,11 +21,11 @@ export function ProductPage(props) {
 	const [buttonName, setButtonName] = useState('ADD TO BASKET');
 	const [buttonLink, setButtonLink] = useState('');
 
-	//not find
 	const changeButtonName = useCallback(() => {
 		const isInCart = cartProductsList.find((product) => {
 			return product.id === productId;
 		});
+
 		if (!isInCart) {
 			return;
 		}
@@ -45,15 +45,16 @@ export function ProductPage(props) {
 			}
 			setProduct(data);
 		}, []);
-	}, [products, productId]);
+	}, [products, productId, cartProductsList, changeButtonName]);
 
 	const handleBuy = useCallback(() => {
-		CartProductsService.setCartProduct([product]).then((data) => {
+		CartProductsService.setCartProduct(product).then((data) => {
 			if (!data) {
 				return;
 			}
 			dispatch(setCartProduct(data));
-			changeButtonName();
+			setButtonName('GO TO BASKET');
+			setButtonLink('/cart');
 		}, []);
 
 		// eslint-disable-next-line

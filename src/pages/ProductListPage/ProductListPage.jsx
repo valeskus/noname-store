@@ -48,8 +48,7 @@ export function ProductListPage() {
 		setCategory(value);
 	}, []);
 
-	//rename function, rebase function
-	const sortedList = (list, sortedBy) => {
+	const sortList = (list, sortedBy) => {
 		let sortedList = [];
 		switch (sortedBy) {
 			case 'PHL':
@@ -73,7 +72,7 @@ export function ProductListPage() {
 		return sortedList;
 	};
 
-	const filteredList = (products, category) => {
+	const filterList = (products, category) => {
 		if (!category) {
 			return products;
 		}
@@ -81,7 +80,7 @@ export function ProductListPage() {
 	};
 
 	const productsList = useMemo(() => {
-		const filterByCategory = filteredList(products, category);
+		const filterByCategory = filterList(products, category);
 
 		const list = !filter
 			? filterByCategory
@@ -89,7 +88,7 @@ export function ProductListPage() {
 					product.title.toLowerCase().includes(filter.toLowerCase())
 			  );
 
-		sortedList(list, sortedBy);
+		sortList(list, sortedBy);
 		return list;
 	}, [filter, products, sortedBy, category]);
 

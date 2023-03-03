@@ -1,8 +1,8 @@
 import { Client } from './api/client/Client';
 import { getUserData, login, register } from './api/user.api';
-import { getData, getProduct, getProducts } from './api/products.api';
+import { getProduct, getProducts } from './api/products.api';
 import { getCategoryData } from './api/categories.api';
-import { getCartProducts } from './api/cart.api';
+import { getCartProducts, resetCart } from './api/cart.api';
 import { setCartProduct } from './api/cart.api';
 
 export const UserService = {
@@ -49,6 +49,10 @@ export const CartProductsService = {
 	},
 	async setCartProduct(product) {
 		const res = await setCartProduct(product);
+		return res.result;
+	},
+	async delCartProducts() {
+		const res = await resetCart();
 		return res.result;
 	},
 };

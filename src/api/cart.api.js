@@ -2,6 +2,7 @@ const cartUpdate = (product) => {
 	const productList = localStorage.getItem('product')
 		? JSON.parse(localStorage.getItem('product'))
 		: [];
+
 	productList.push(product);
 	return JSON.stringify(productList);
 };
@@ -19,5 +20,12 @@ export const setCartProduct = (product) => {
 	localStorage.setItem('product', productJSON);
 	return new Promise((resolve, reject) => {
 		return resolve({ result: product });
+	});
+};
+
+export const resetCart = (product) => {
+	localStorage.removeItem('product');
+	return new Promise((resolve, reject) => {
+		return resolve({ result: 'succes' });
 	});
 };
