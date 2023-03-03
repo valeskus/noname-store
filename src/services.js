@@ -14,8 +14,9 @@ export const UserService = {
 
 	async loginUser(data) {
 		const res = await login(data);
+		Client.setToken(res.result.token);
+		console.log(res.result);
 
-		Client.setToken(res.result);
 		return res.result;
 	},
 	async getUserData() {

@@ -4,7 +4,6 @@ const initialState = {
 	isAuth: false,
 	email: '',
 	name: '',
-	token: '',
 };
 
 export function userReducer(state = initialState, action) {
@@ -16,6 +15,7 @@ export function userReducer(state = initialState, action) {
 				...state,
 				email,
 				name,
+				isAuth: true,
 			};
 		}
 		case Types.PUT_TOKEN: {
@@ -24,7 +24,6 @@ export function userReducer(state = initialState, action) {
 			return {
 				...state,
 				token,
-				isAuth: true,
 			};
 		}
 		case Types.REMOVE_TOKEN: {

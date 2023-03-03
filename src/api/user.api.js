@@ -2,7 +2,12 @@ export const login = (data) => {
 	return new Promise((resolve, reject) => {
 		if (data.email === 'UserOne@gmail.com' && data.password === 'UserOne') {
 			return resolve({
-				result: 'token1',
+				result: {
+					name: 'UserOne',
+					email: 'UserOne@gmail.com',
+					token: 'token1',
+					isAuth: false,
+				},
 			});
 		}
 
@@ -29,12 +34,18 @@ export const register = (data) => {
 };
 
 export const getUserData = () => {
+	const token = localStorage.getItem('JWT');
+
 	return new Promise((resolve, reject) => {
+		if (!token) {
+			return reject('Error: 401 User Unauthorized');
+		}
 		return resolve({
 			result: {
 				name: 'UserOne',
 				email: 'UserOne@gmail.com',
 				token: 'token1',
+				isAuth: false,
 			},
 		});
 	});

@@ -3,7 +3,7 @@ import './LoginPage.style.css';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
 import { useDispatch } from 'react-redux';
-import { putToken } from '../../store/user/actionCreators';
+import { putToken, setUser } from '../../store/user/actionCreators';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { UserService } from '../../services';
@@ -19,8 +19,10 @@ export function LoginPage(props) {
 		event.preventDefault();
 
 		try {
-			const result = await UserService.loginUser({ email, password });
-			dispatch(putToken(result));
+			UserService.loginUser({ email, password }).then((data) => {
+				dispatch(putToken(data.token));
+			});
+
 			navigate('/main');
 		} catch (error) {
 			alert(error);
