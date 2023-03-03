@@ -1,5 +1,11 @@
 import { Client } from './api/client/Client';
-import { getUserData, login, register } from './api/user.api';
+import {
+	getUserData,
+	login,
+	loginWithGoogle,
+	logout,
+	register,
+} from './api/user.api';
 import { getProduct, getProducts } from './api/products.api';
 import { getCategoryData } from './api/categories.api';
 import { getCartProducts, resetCart } from './api/cart.api';
@@ -14,14 +20,19 @@ export const UserService = {
 
 	async loginUser(data) {
 		const res = await login(data);
-		Client.setToken(res.result.token);
-		console.log(res.result);
+		// Client.setToken(res.result.token);
 
 		return res.result;
 	},
-	async getUserData() {
-		const res = await getUserData();
+	async logoutUser() {
+		const res = await logout();
 		return res.result;
+	},
+	async loginWithGoogle(data) {
+		const res = await loginWithGoogle(data);
+		// Client.setToken(res.result.token);
+
+		// return res.result;
 	},
 };
 

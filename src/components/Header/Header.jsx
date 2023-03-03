@@ -51,12 +51,12 @@ export function Header() {
 			}
 			dispatch(setCartProducts(data));
 		}, []);
-		UserService.getUserData().then((data) => {
-			if (!data) {
-				return;
-			}
-			dispatch(setUser(data));
-		}, []);
+		// UserService.getUserData().then((data) => {
+		// 	if (!data) {
+		// 		return;
+		// 	}
+		// 	dispatch(setUser(data));
+		// }, []);
 		//eslint-disable-next-line
 	}, []);
 	return (

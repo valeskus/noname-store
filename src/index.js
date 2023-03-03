@@ -5,6 +5,8 @@ import { rootStore } from './store';
 import './index.css';
 import App from './App';
 
+import './firebaseApp';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>

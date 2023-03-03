@@ -1,21 +1,19 @@
 import * as Types from './actionTypes';
 
 const initialState = {
-	isAuth: false,
+	// isAuth: false,
 	email: '',
-	name: '',
 };
 
 export function userReducer(state = initialState, action) {
 	switch (action.type) {
 		case Types.SET_USER: {
-			const { email, name } = action.payload;
+			const { email } = action.payload;
 
 			return {
 				...state,
 				email,
-				name,
-				isAuth: true,
+				// isAuth: true,
 			};
 		}
 		case Types.PUT_TOKEN: {

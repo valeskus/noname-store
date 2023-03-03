@@ -19,9 +19,22 @@ export function LoginPage(props) {
 		event.preventDefault();
 
 		try {
-			UserService.loginUser({ email, password }).then((data) => {
-				dispatch(putToken(data.token));
+			UserService.loginUser({ email, password }).then((result) => {
+				// dispatch(putToken(result.token));
+				dispatch(setUser({ email: result.email }));
 			});
+
+			navigate('/main');
+		} catch (error) {
+			alert(error);
+		}
+	}
+
+	async function handleGoogleSubmit(event) {
+		event.preventDefault();
+
+		try {
+			await UserService.loginWithGoogle();
 
 			navigate('/main');
 		} catch (error) {
@@ -59,6 +72,8 @@ export function LoginPage(props) {
 					type='text'
 				></Input>
 				<Button type='submit'>Login</Button>
+				<Button onClick={handleGoogleSubmit}>SignIn With Google</Button>
+
 				<p>
 					If you not have an account you can
 					<Link to='/registration'> Registration</Link>

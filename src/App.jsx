@@ -11,26 +11,25 @@ import { CartPage } from './pages/CartPage';
 import { Footer } from './components/Footer';
 import { PrivateRoute } from './components/PrivateRouter';
 import { useDispatch, useSelector } from 'react-redux';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { getUser } from './store/user/selectors';
-import { Client } from './api/client/Client';
-import { putToken, setUser } from './store/user/actionCreators';
-import { UserService } from './services';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from './firebaseApp';
 
 function App() {
-	const [isAuth, setIsAuth] = useState();
-	const user = useSelector(getUser);
-	console.log(user);
-	const dispatch = useDispatch();
+	const [user, loading, error] = useAuthState(auth);
 
-	React.useEffect(() => {
-		UserService.getUserData().then((data) => {
-			if (!data) {
-				return;
-			}
-			dispatch(setUser(data));
-		}, []);
-	}, []);
+	console.log(user?.email);
+
+	if (loading) {
+		return (
+			<div className='loader-container'>
+				<CircularProgress />
+			</div>
+		);
+	}
+
 	return (
 		<BrowserRouter>
 			<Header />
@@ -42,7 +41,7 @@ function App() {
 				<Route
 					path='/account'
 					element={
-						<PrivateRoute redirectPath='/login' isAllowed={!!isAuth}>
+						<PrivateRoute redirectPath='/login' isAllowed={!!user}>
 							<AccountPage />
 						</PrivateRoute>
 					}

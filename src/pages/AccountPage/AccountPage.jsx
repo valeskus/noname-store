@@ -16,12 +16,12 @@ export function AccountPage() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		UserService.getUserData().then((data) => {
-			if (!data) {
-				return;
-			}
-			dispatch(setUser(data));
-		}, []);
+		// UserService.getUserData().then((data) => {
+		// 	if (!data) {
+		// 		return;
+		// 	}
+		// 	dispatch(setUser(data));
+		// }, []);
 		// eslint-disable-next-line
 	}, []);
 
@@ -29,8 +29,9 @@ export function AccountPage() {
 		event.preventDefault();
 
 		try {
-			UserService.loginUser().then((data) => {
-				dispatch(removeToken(data.token));
+			UserService.logoutUser().then((data) => {
+				// dispatch(removeToken(data.token));
+				console.log(data);
 			});
 
 			navigate('/main');
@@ -44,7 +45,7 @@ export function AccountPage() {
 				<Avatar alt='User Photo' sx={{ width: 100, height: 100, zIndex: -1 }} />
 				<div className='userData-info'>
 					<h1 id='accountPageUserName'>{user.name}</h1>
-					<Button>Logout</Button>
+					<Button onClick={handleLogout}>Logout</Button>
 				</div>
 			</div>
 			<OrderHistory />
