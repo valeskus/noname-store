@@ -14,8 +14,10 @@ import { Button } from '../common/Button';
 import { LoginPage } from '../../pages/LoginPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartProducts } from '../../store/cart/selectors';
-import { CartProductsService } from '../../services';
+import { CartProductsService, UserService } from '../../services';
 import { setCartProducts } from '../../store/cart/actionCreators';
+import { getUser } from '../../store/user/selectors';
+import { setUser } from '../../store/user/actionCreators';
 
 const style = {
 	position: 'absolute',
@@ -34,17 +36,26 @@ const style = {
 
 export function Header() {
 	const products = useSelector(getCartProducts);
+	const user = useSelector(getUser);
+
 	const dispatch = useDispatch();
 
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
+
 	useEffect(() => {
 		CartProductsService.getCartProducts().then((data) => {
 			if (!data) {
 				return;
 			}
 			dispatch(setCartProducts(data));
+		}, []);
+		UserService.getUserData().then((data) => {
+			if (!data) {
+				return;
+			}
+			dispatch(setUser(data));
 		}, []);
 		//eslint-disable-next-line
 	}, []);
@@ -67,9 +78,16 @@ export function Header() {
 					</StyledBadge>
 				</Link>
 			</div>
-			<Button className='pages-name' onClick={handleOpen}>
-				Login
-			</Button>
+			<div className='isUserAuth'>
+				{user.isAuth ? (
+					<h3>Hello,{user.name}!</h3>
+				) : (
+					<Button className='pages-name' onClick={handleOpen}>
+						Login
+					</Button>
+				)}
+			</div>
+
 			<Modal
 				open={open}
 				onClose={handleClose}

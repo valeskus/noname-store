@@ -1,9 +1,22 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import './MainPage.style.css';
 import { useNavigate } from 'react-router-dom';
+import { UserService } from '../../services';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../store/user/actionCreators';
 
 export function MainPage() {
+	const dispatch = useDispatch();
 	let navigate = useNavigate();
+
+	// useEffect(() => {
+	// 	UserService.getUserData().then((data) => {
+	// 		if (!data) {
+	// 			return;
+	// 		}
+	// 		dispatch(setUser(data));
+	// 	}, []);
+	// }, []);
 
 	const bannerImageList = useMemo(
 		() => ['/banner2.png', '/banner3.png', '/banner4.png'],

@@ -10,29 +10,27 @@ import { Header } from './components/Header';
 import { CartPage } from './pages/CartPage';
 import { Footer } from './components/Footer';
 import { PrivateRoute } from './components/PrivateRouter';
-import { UserService } from './services';
 import { useDispatch, useSelector } from 'react-redux';
-import { putToken, setUser } from './store/user/actionCreators';
-import { Client } from './api/client/Client';
+
 import { getUser } from './store/user/selectors';
+import { Client } from './api/client/Client';
+import { putToken, setUser } from './store/user/actionCreators';
+import { UserService } from './services';
 
 function App() {
 	const [isAuth, setIsAuth] = useState();
-	const dispatch = useDispatch();
 	const user = useSelector(getUser);
 	console.log(user);
+	const dispatch = useDispatch();
 
-	useEffect(() => {
+	React.useEffect(() => {
 		UserService.getUserData().then((data) => {
 			if (!data) {
 				return;
 			}
 			dispatch(setUser(data));
-
-			setIsAuth(data);
 		}, []);
 	}, []);
-
 	return (
 		<BrowserRouter>
 			<Header />
@@ -44,7 +42,7 @@ function App() {
 				<Route
 					path='/account'
 					element={
-						<PrivateRoute redirectPath='/login' isAuth={!!isAuth}>
+						<PrivateRoute redirectPath='/login' isAllowed={!!isAuth}>
 							<AccountPage />
 						</PrivateRoute>
 					}

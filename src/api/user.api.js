@@ -6,7 +6,6 @@ export const login = (data) => {
 					name: 'UserOne',
 					email: 'UserOne@gmail.com',
 					token: 'token1',
-					isAuth: false,
 				},
 			});
 		}

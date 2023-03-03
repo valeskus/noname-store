@@ -4,11 +4,11 @@ import { Navigate } from 'react-router-dom';
 
 import { Client } from '../../api/client/Client';
 
-export const PrivateRoute = ({ redirectPath, children, isAuth }) => {
-	console.log(isAuth);
-	const token = Client.getToken();
+export const PrivateRoute = ({ redirectPath, children, isAllowed }) => {
+	console.log(isAllowed);
+	// const token = Client.getToken();
 
-	if (!token) {
+	if (!isAllowed) {
 		return <Navigate to={redirectPath} replace />;
 	}
 
