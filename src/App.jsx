@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Registration } from './pages/Registration';
 import { LoginPage } from './pages/LoginPage';
@@ -10,10 +9,8 @@ import { Header } from './components/Header';
 import { CartPage } from './pages/CartPage';
 import { Footer } from './components/Footer';
 import { PrivateRoute } from './components/PrivateRouter';
-import { useDispatch, useSelector } from 'react-redux';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { getUser } from './store/user/selectors';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebaseApp';
 
@@ -32,9 +29,16 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<Header />
+			<Header user={user} />
 			<Routes>
-				<Route path='/login' element={<LoginPage />} />
+				<Route
+					path='/login'
+					element={
+						<PrivateRoute redirectPath='/main' isAllowed={!user}>
+							<LoginPage />
+						</PrivateRoute>
+					}
+				/>
 				<Route path='/registration' element={<Registration />} />
 				<Route path='/productList' element={<ProductListPage />} />
 				<Route path='/productList/:productId' element={<ProductPage />} />
@@ -49,7 +53,7 @@ function App() {
 				<Route
 					path='/cart'
 					element={
-						<PrivateRoute redirectPath='/login'>
+						<PrivateRoute redirectPath='/login' isAllowed={!!user}>
 							<CartPage />
 						</PrivateRoute>
 					}

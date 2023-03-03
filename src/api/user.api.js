@@ -1,6 +1,5 @@
 import { auth } from '../firebaseApp';
 import * as FBAuth from 'firebase/auth';
-// import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 const provider = new FBAuth.GoogleAuthProvider();
 
@@ -79,13 +78,7 @@ export const loginWithGoogle = async (data) => {
 
 	try {
 		const result = await FBAuth.signInWithPopup(auth, provider);
-		// This gives you a Google Access Token. You can use it to access the Google API.
-		const credential = FBAuth.GoogleAuthProvider.credentialFromResult(result);
-		const token = credential.accessToken;
-		// The signed-in user info.
-		const user = result.user;
-		// IdP data available using getAdditionalUserInfo(result)
-		// ...
+		FBAuth.GoogleAuthProvider.credentialFromResult(result);
 	} catch (error) {
 		console.log('error', error);
 	}

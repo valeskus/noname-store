@@ -12,25 +12,13 @@ import { useNavigate } from 'react-router-dom';
 export function AccountPage() {
 	const user = useSelector(getUser);
 
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		// UserService.getUserData().then((data) => {
-		// 	if (!data) {
-		// 		return;
-		// 	}
-		// 	dispatch(setUser(data));
-		// }, []);
-		// eslint-disable-next-line
-	}, []);
 
 	async function handleLogout(event) {
 		event.preventDefault();
 
 		try {
 			UserService.logoutUser().then((data) => {
-				// dispatch(removeToken(data.token));
 				console.log(data);
 			});
 

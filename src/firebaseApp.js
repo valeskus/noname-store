@@ -18,8 +18,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// export const info = getAdditionalUserInfo(app);
+
 console.log(auth);
+//token!!!
 
 (async () => {
 	await setPersistence(auth, browserLocalPersistence);
