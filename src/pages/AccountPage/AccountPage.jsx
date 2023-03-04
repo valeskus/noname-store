@@ -14,7 +14,7 @@ export function AccountPage({ user }) {
 
 		try {
 			UserService.logoutUser().then((data) => {
-				console.log(data);
+				console.log('logout:', data);
 			});
 
 			navigate('/main');
@@ -27,7 +27,7 @@ export function AccountPage({ user }) {
 			<div className='userData-container'>
 				<Avatar alt='User Photo' sx={{ width: 100, height: 100, zIndex: -1 }} />
 				<div className='userData-info'>
-					<h1 id='accountPageUserName'>{user.name}</h1>
+					<h1 id='accountPageUserName'>{user.email}</h1>
 					<Button onClick={handleLogout}>Logout</Button>
 				</div>
 			</div>

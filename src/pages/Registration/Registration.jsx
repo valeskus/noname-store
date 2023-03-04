@@ -33,7 +33,7 @@ export function Registration() {
 	}, []);
 	return (
 		<div className='container'>
-			<form className='form-container'>
+			<form className='loginForm-container'>
 				<h2>Registration</h2>
 				<Input
 					onChange={handleEmail}

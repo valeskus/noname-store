@@ -41,8 +41,7 @@ function App() {
 				<Route path='/productList' element={<ProductListPage />} />
 				<Route
 					path='/productList/:productId'
-					element={<ProductPage />}
-					user={user}
+					element={<ProductPage user={user} />}
 				/>
 				<Route
 					path='/account'

@@ -63,6 +63,7 @@ export function ProductPage({ user }) {
 	}, [products, productId, cartProductsList, changeButtonName]);
 	const [open, setOpen] = React.useState(false);
 	const handleClose = () => setOpen(false);
+
 	const handleBuy = useCallback(() => {
 		if (!user) {
 			return setOpen(true);
@@ -77,7 +78,7 @@ export function ProductPage({ user }) {
 		}, []);
 
 		// eslint-disable-next-line
-	}, [product]);
+	}, [product,user]);
 
 	return (
 		<div className='productPage-container'>

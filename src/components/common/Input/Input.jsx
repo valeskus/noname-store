@@ -6,7 +6,7 @@ export function Input(props) {
 	return (
 		<div className='input-container'>
 			<TextField
-				label='Search'
+				label={props.label}
 				variant='filled'
 				color='secondary'
 				onChange={(e) => {

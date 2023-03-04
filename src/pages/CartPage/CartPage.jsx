@@ -46,7 +46,9 @@ export function CartPage() {
 				<h3>
 					Subtotal ({products ? products.length : 0} item): {subtotalPrice}$
 				</h3>
-				<Button onClick={deleteCartList}>Buy</Button>
+				{products.length > 0 ? (
+					<Button onClick={deleteCartList}>Buy</Button>
+				) : null}
 			</div>
 		</div>
 	);
