@@ -40,9 +40,15 @@ export function CartPage() {
 		<div className='cartPage-container'>
 			<div className='cart-container'>
 				<h3>Order</h3>
-				{products.map((product, index) => {
-					return <CartItem product={product} key={index} />;
-				})}
+				{products.length > 0 ? (
+					products.map((product, index) => {
+						return <CartItem product={product} key={index} />;
+					})
+				) : (
+					<div id='emptyCartContainer'>
+						<h4>Cart is Empty...</h4>
+					</div>
+				)}
 				<h3>
 					Subtotal ({products ? products.length : 0} item): {subtotalPrice}$
 				</h3>

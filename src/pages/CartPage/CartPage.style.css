@@ -18,5 +18,14 @@
     padding: 50px;
     border: 1px solid #cfb2ea;
     border-radius: 10px;
+}
 
+#emptyCartContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid #eeabdf;
+    border-bottom: 1px solid #cfb2ea;
 }
