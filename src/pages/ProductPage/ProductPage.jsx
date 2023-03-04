@@ -33,26 +33,24 @@ export function ProductPage({ user }) {
 	const cartProductsList = useSelector(getCartProducts);
 
 	const [product, setProduct] = useState({});
-	const [buttonName, setButtonName] = useState('ADD TO BASKET');
-	const [buttonLink, setButtonLink] = useState('');
+	const [isInCart, setIsInCart] = useState();
 
-	const changeButtonName = useCallback(() => {
+	const checkIsInCart = useCallback(() => {
 		const isInCart = cartProductsList.find((product) => {
 			return product.id === productId;
 		});
 
 		if (!isInCart) {
-			return;
+			return setIsInCart(false);
 		}
-		setButtonName('GO TO BASKET');
-		setButtonLink('/cart');
+		return setIsInCart(true);
 	}, [cartProductsList, productId]);
 
 	useEffect(() => {
 		if (!productId) {
 			return;
 		}
-		changeButtonName();
+		checkIsInCart();
 
 		ProductService.getProductById(productId).then((data) => {
 			if (!data) {
@@ -60,7 +58,8 @@ export function ProductPage({ user }) {
 			}
 			setProduct(data);
 		}, []);
-	}, [products, productId, cartProductsList, changeButtonName]);
+	}, [products, productId, cartProductsList, checkIsInCart]);
+
 	const [open, setOpen] = React.useState(false);
 	const handleClose = () => setOpen(false);
 
@@ -73,8 +72,7 @@ export function ProductPage({ user }) {
 				return;
 			}
 			dispatch(setCartProduct(data));
-			setButtonName('GO TO BASKET');
-			setButtonLink('/cart');
+			checkIsInCart();
 		}, []);
 
 		// eslint-disable-next-line
@@ -91,9 +89,14 @@ export function ProductPage({ user }) {
 				<div className='productPage-details'>
 					<h3>{product.title}</h3>
 					<p>{product.price}$</p>
-					<Link to={buttonLink}>
-						<Button onClick={handleBuy}>{buttonName}</Button>
-					</Link>
+
+					{!isInCart ? (
+						<Button onClick={handleBuy}>ADD TO BASKET</Button>
+					) : (
+						<Link to={'/cart'}>
+							<Button>GO TO BASKET</Button>
+						</Link>
+					)}
 				</div>
 			</div>
 			<div className='product-description'>
