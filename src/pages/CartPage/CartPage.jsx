@@ -33,6 +33,7 @@ export function CartPage() {
 			},
 			[dispatch]
 		);
+		//eslint-disable-next-line
 	}, []);
 
 	return (

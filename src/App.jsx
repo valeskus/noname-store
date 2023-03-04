@@ -15,7 +15,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebaseApp';
 
 function App() {
-	const [user, loading, error] = useAuthState(auth);
+	const [user, loading] = useAuthState(auth);
 
 	if (loading) {
 		return (
@@ -48,7 +48,7 @@ function App() {
 					path='/account'
 					element={
 						<PrivateRoute redirectPath='/login' isAllowed={!!user}>
-							<AccountPage />
+							<AccountPage user={user} />
 						</PrivateRoute>
 					}
 				/>

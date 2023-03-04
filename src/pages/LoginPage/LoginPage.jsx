@@ -2,8 +2,6 @@ import React, { useCallback, useState } from 'react';
 import './LoginPage.style.css';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../store/user/actionCreators';
 import GoogleIcon from '@mui/icons-material/Google';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,17 +11,13 @@ export function LoginPage(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const dispatch = useDispatch();
 	let navigate = useNavigate();
 
 	async function handleSubmit(event) {
 		event.preventDefault();
 
 		try {
-			UserService.loginUser({ email, password }).then((result) => {
-				// dispatch(putToken(result.token));
-				dispatch(setUser({ email: result.email }));
-			});
+			await UserService.loginUser({ email, password });
 
 			navigate('/main');
 		} catch (error) {

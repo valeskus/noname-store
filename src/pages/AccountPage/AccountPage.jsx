@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './AccountPage.style.css';
-import { useDispatch, useSelector } from 'react-redux';
 import { UserService } from '../../services';
-import { removeToken, setUser } from '../../store/user/actionCreators';
-import { getUser } from '../../store/user/selectors';
 import { OrderHistory } from './components/OrderHistory';
 import Avatar from '@mui/material/Avatar';
 import { Button } from '../../components/common/Button';
 import { useNavigate } from 'react-router-dom';
 
-export function AccountPage() {
-	const user = useSelector(getUser);
-
+export function AccountPage({ user }) {
 	const navigate = useNavigate();
 
 	async function handleLogout(event) {

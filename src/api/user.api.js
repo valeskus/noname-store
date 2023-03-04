@@ -43,24 +43,6 @@ export const register = async (data) => {
 	}
 };
 
-export const getUserData = () => {
-	const token = localStorage.getItem('JWT');
-
-	return new Promise((resolve, reject) => {
-		if (!token) {
-			return reject('Error: 401 User Unauthorized');
-		}
-		return resolve({
-			result: {
-				name: 'UserOne',
-				email: 'UserOne@gmail.com',
-				token: 'token1',
-				isAuth: false,
-			},
-		});
-	});
-};
-
 export const logout = async (data) => {
 	try {
 		await FBAuth.signOut(auth);
