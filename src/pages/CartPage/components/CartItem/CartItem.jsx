@@ -17,7 +17,7 @@ export function CartItem({ product }) {
 				alt='productImage'
 			/>
 			<div className='cartPage-product-details'>
-				<h4>{product.name}</h4>
+				<h4>{product.title}</h4>
 				<p>{product.price}$</p>
 			</div>
 		</div>
