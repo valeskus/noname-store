@@ -17,8 +17,6 @@ import { auth } from './firebaseApp';
 function App() {
 	const [user, loading, error] = useAuthState(auth);
 
-	console.log(user?.email);
-
 	if (loading) {
 		return (
 			<div className='loader-container'>
@@ -41,7 +39,11 @@ function App() {
 				/>
 				<Route path='/registration' element={<Registration />} />
 				<Route path='/productList' element={<ProductListPage />} />
-				<Route path='/productList/:productId' element={<ProductPage />} />
+				<Route
+					path='/productList/:productId'
+					element={<ProductPage />}
+					user={user}
+				/>
 				<Route
 					path='/account'
 					element={

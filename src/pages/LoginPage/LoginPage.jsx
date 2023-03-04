@@ -3,7 +3,8 @@ import './LoginPage.style.css';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
 import { useDispatch } from 'react-redux';
-import { putToken, setUser } from '../../store/user/actionCreators';
+import { setUser } from '../../store/user/actionCreators';
+import GoogleIcon from '@mui/icons-material/Google';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { UserService } from '../../services';
@@ -71,8 +72,12 @@ export function LoginPage(props) {
 					id='userPassword'
 					type='text'
 				></Input>
-				<Button type='submit'>Login</Button>
-				<Button onClick={handleGoogleSubmit}>SignIn With Google</Button>
+				<div className='loginButton-container'>
+					<Button type='submit'>Login</Button>
+					<Button onClick={handleGoogleSubmit}>
+						<GoogleIcon fontSize='small' color='primary' />
+					</Button>
+				</div>
 
 				<p>
 					If you not have an account you can
